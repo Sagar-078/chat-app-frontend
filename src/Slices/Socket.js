@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { io } from 'socket.io-client';
-const backendUrl ='http://localhost:4000';
+const backendUrl ='https://chat-app-backend-s0em.onrender.com';
 export const connectSocket = () => {
     try {
      const socket =  io(backendUrl);
