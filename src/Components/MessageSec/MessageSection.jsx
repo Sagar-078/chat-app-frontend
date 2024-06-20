@@ -95,7 +95,7 @@ const MessageSection = ({messages, chatId, details }) => {
 
                         </div>
 
-                        <div className={`${message.sender._id === user._id ? (" pl-28 max-sm:pl-16") : ("pr-20 max-sm:pr-11 pl-11")}`}>
+                        <div className={`${message.sender._id === user._id ? (" pl-28 max-sm:pl-16") : ("pr-20 max-sm:pr-11 ")}`}>
                           <div
                           className={`${message.sender._id === user._id ? 
                             ("flex flex-col text-white bg-green-900 text-wrap px-4 py-1 rounded-lg font-semibold self-end text-left w-fit") 
