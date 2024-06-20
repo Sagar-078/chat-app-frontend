@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import CreateGroup from './CreateGroup';
 import MyChatUsers from './MyChatUsers';
 
-const SideBar = () => {
-
-  const [navigated, setNevgated] = useState(false);
+const SideBar = ({setNevgated, navigated}) => {
 
   return (
     <div className={`h-[calc(100vh-10%)] w-[calc(100vw-60%)]

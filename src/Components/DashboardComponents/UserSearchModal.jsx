@@ -9,7 +9,7 @@ import { apiconnecter } from '../../services/apiconnecter';
 import { userEndPoint } from "../../services/apis";
 const { GETUSERBYSEARCH_API } = userEndPoint;
 
-const UserSearchModal = () => {
+const UserSearchModal = ({setNevgated, navigated}) => {
 
     const [open, setOpen] = useState(false);
     const [keyword, setKeyword] = useState("");
@@ -123,6 +123,7 @@ const UserSearchModal = () => {
                                                                 token={token} 
                                                                 setOpen={setOpen}
                                                                 setKeyword={setKeyword}
+                                                                setNevgated={setNevgated} navigated={navigated}
                                                             />
                                                         )
                                                     })

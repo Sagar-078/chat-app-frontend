@@ -7,7 +7,7 @@ import UserImageModal from './UserImageModal';
 import { useNavigate } from 'react-router-dom';
 const { CREATECHAT_API } = chatEndPoint;
 
-const UserSec = ({all, token, setOpen, setKeyword}) => {
+const UserSec = ({all, token, setOpen, setKeyword, setNevgated, navigated}) => {
 
     const [imageModal, setImageModal] = useState(null);
     const [openModal, setOpenModal] = useState(false);
@@ -27,6 +27,7 @@ const UserSec = ({all, token, setOpen, setKeyword}) => {
             });
 
             navigate(`/dashboard/${response?.data?.chatId}`);
+            setNevgated(true)
             setKeyword("");
         }catch(error){
             console.log("err while creating chat =>>", error);

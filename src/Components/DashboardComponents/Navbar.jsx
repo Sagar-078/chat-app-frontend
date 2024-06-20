@@ -3,12 +3,12 @@ import { SiMessenger } from "react-icons/si";
 import ProfileDropDown from './ProfileDropDown';
 import UserSearchModal from './UserSearchModal';
 
-const Navbar = () => {
+const Navbar = ({setNevgated, navigated}) => {
 
   return (
     <nav className='Navbackground flex items-center justify-between'>
         
-        <UserSearchModal/>
+        <UserSearchModal setNevgated={setNevgated} navigated={navigated}/>
 
         <div>
             <h1 className='text-zinc-400 font-bold font-mono text-3xl max-sm:invisible'>cHaT-aPp</h1>
