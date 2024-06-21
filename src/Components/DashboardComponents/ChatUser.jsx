@@ -56,14 +56,14 @@ const ChatUser = ({myChat, setNevgated}) => {
             </div>
           }
 
-          <img src={myChat.isGroupChat === true ? (myChat.groupIcon) : (myChat.users[0].profile)}
+          <img src={myChat.isGroupChat === true ? (myChat?.groupIcon) : (myChat?.users[0]?.profile)}
             alt="" className={`rounded-full h-[65px] w-[65px] max-[1220px]:h-[50px] max-[1220px]:w-[50px] ${loading ? " hidden" : ""}`}
             onLoad={() => setLoading(false)}
             onClick={() => {
               setOpenModal(true);
               setImageModal({
-                image: `${myChat.isGroupChat === true ? (myChat.groupIcon) : (myChat.users[0].profile)}`,
-                name: `${myChat.isGroupChat === true ? (myChat.chatName) : (myChat.users[0].name)}`
+                image: `${myChat.isGroupChat === true ? (myChat?.groupIcon) : (myChat?.users[0]?.profile)}`,
+                name: `${myChat.isGroupChat === true ? (myChat?.chatName) : (myChat?.users[0]?.name)}`
               })
             }}
           />
@@ -74,10 +74,10 @@ const ChatUser = ({myChat, setNevgated}) => {
             {
               myChat.isGroupChat === true ? 
               (<div>
-                <h1>{myChat.chatName}</h1>
+                <h1>{myChat?.chatName}</h1>
                 <p className="text-xs text-amber-300">Group Chat</p>
               </div>) 
-              : (<h1>{myChat.users[0].name}</h1>)
+              : (<h1>{myChat?.users[0]?.name}</h1>)
             }
           </h1>
 
