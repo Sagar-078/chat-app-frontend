@@ -88,10 +88,10 @@ const ChatUser = ({myChat, setNevgated}) => {
                   myChat.isGroupChat === true ? 
                   (
                     myChat?.latestMessage?.content && (
-                      (myChat?.latestMessage?.sender._id !== user._id ? 
+                      (myChat?.latestMessage?.sender?._id !== user?._id ? 
                       (
                         <div className=" flex items-center gap-1">
-                          <h1>{myChat.latestMessage.sender.name}</h1>
+                          <h1>{myChat?.latestMessage?.sender?.name}</h1>
                           <div>:</div>
                         </div>
                       ) : (<div>You :</div>))
@@ -100,19 +100,19 @@ const ChatUser = ({myChat, setNevgated}) => {
                   : 
                   (
                     myChat?.latestMessage?.content &&(
-                      (myChat?.latestMessage?.sender._id !== user._id ? ("") : (<div>You : </div>)) 
+                      (myChat?.latestMessage?.sender?._id !== user?._id ? ("") : (<div>You : </div>)) 
                     )
                   )
                 }
               </div>
-              <div className={`${myChat?.latestMessage?.sender._id !== user._id ? (" text-green-300") : (" text-stone-300")}`}>
+              <div className={`${myChat?.latestMessage?.sender?._id !== user?._id ? (" text-green-300") : (" text-stone-300")}`}>
                 {
                   truncateText(myChat?.latestMessage?.content || "", 10)
                 }
               </div>
             </div>
           
-            <div className={` flex text-xs ${myChat?.latestMessage?.sender._id !== user._id ? (" text-green-600") : (" text-stone-400")}`}>
+            <div className={` flex text-xs ${myChat?.latestMessage?.sender?._id !== user?._id ? (" text-green-600") : (" text-stone-400")}`}>
               {
                 myChat?.latestMessage?.updatedAt ? formatDate(myChat?.latestMessage?.updatedAt) : ''
               }
