@@ -56,22 +56,22 @@ const MessageSection = ({messages, chatId, details }) => {
           <div className=' pb-4 w-[calc(100%-10%)]'>
             <div className=' overflow-y-scroll flex flex-col gap-2 h-full'>
               {
-                messages.map((message, i) => {
+                messages?.map((message, i) => {
                   return (
                     <div className='flex flex-col ' key={i} >
                       
                       <div 
-                        className={`${message.sender._id === user._id ? 
+                        className={`${message?.sender?._id === user?._id ? 
                         (" text-left self-end") : ("flex gap-1 flex-col items-baseline")}`}
                       >
 
                         <div className=' flex items-baseline gap-1'>
                           {
-                            details.isGroupChat === true && (
+                            details?.isGroupChat === true && (
                               <div>
                                 {
-                                  message.sender._id !== user._id && (
-                                    <img src={`${message.sender.profile}`} 
+                                  message?.sender?._id !== user?._id && (
+                                    <img src={`${message?.sender?.profile}`} 
                                     className=' h-10 w-10 rounded-full'/>
                                   )
                                 }
@@ -81,11 +81,11 @@ const MessageSection = ({messages, chatId, details }) => {
 
                           <div>
                             {
-                              details.isGroupChat === true && (
-                                message.sender._id !== user._id && (
+                              details?.isGroupChat === true && (
+                                message?.sender?._id !== user?._id && (
                                   <h1 className=' font-semibold text-sm'>
                                     {
-                                      message.sender.name
+                                      message?.sender?.name
                                     }
                                   </h1>
                                 )
@@ -95,14 +95,14 @@ const MessageSection = ({messages, chatId, details }) => {
 
                         </div>
 
-                        <div className={`${message.sender._id === user._id ? (" pl-28 max-sm:pl-16") : ("pr-20 max-sm:pr-11 ")}`}>
+                        <div className={`${message?.sender?._id === user?._id ? (" pl-28 max-sm:pl-16") : ("pr-20 max-sm:pr-11 ")}`}>
                           <div
-                          className={`${message.sender._id === user._id ? 
+                          className={`${message?.sender?._id === user?._id ? 
                             ("flex flex-col text-white bg-green-900 text-wrap px-4 py-1 rounded-lg font-semibold self-end text-left w-fit") 
                             : (" bg-gray-700 flex flex-row text-white text-wrap w-fit px-4 py-1 rounded-lg font-semibold")}`}
                           >
                             <div className=' flex flex-col'>
-                              {message.content}
+                              {message?.content}
                               <div className=' text-xs flex self-end pt-1 pl-3 font-thin'>
                                 {
                                   message?.createdAt ? formatDate(message?.createdAt) : ""
