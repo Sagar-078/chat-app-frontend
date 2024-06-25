@@ -42,12 +42,12 @@ const ChatUser = ({myChat, setNevgated}) => {
   
   return (
     <div className=" flex w-full">
-      <div className="flex items-center gap-7 max-[1270px]:gap-4 max-md:gap-2 border-[0.1px] w-full px-3 py-3 bg-gradient-to-b
+      <div className="flex items-center gap-4 max-md:gap-2 border-[0.1px] w-full px-3 py-3 bg-gradient-to-b
        bg-slate-600 rounded-lg cursor-pointer"
        onClick={clickHandler}
       >
 
-        <div>
+        <div className=" w-[calc(100%-80%)]">
 
           {
             loading &&
@@ -56,7 +56,7 @@ const ChatUser = ({myChat, setNevgated}) => {
             </div>
           }
 
-          <img src={myChat.isGroupChat === true ? (myChat?.groupIcon) : (myChat?.users[0]?.profile)}
+          <img src={myChat.isGroupChat === true ? (myChat?.groupIcon) : (myChat.users[0]?.profile)}
             alt="" className={`rounded-full h-[65px] w-[65px] max-[1220px]:h-[50px] max-[1220px]:w-[50px] ${loading ? " hidden" : ""}`}
             onLoad={() => setLoading(false)}
             onClick={() => {
@@ -69,7 +69,7 @@ const ChatUser = ({myChat, setNevgated}) => {
           />
         </div>
 
-        <div className="">
+        <div className=" w-full">
           <h1>
             {
               myChat.isGroupChat === true ? 
@@ -85,13 +85,13 @@ const ChatUser = ({myChat, setNevgated}) => {
             <div className="flex gap-1 truncate">
               <div>
                 {
-                  myChat.isGroupChat === true ? 
+                  myChat?.isGroupChat === true ? 
                   (
                     myChat?.latestMessage?.content && (
                       (myChat?.latestMessage?.sender?._id !== user?._id ? 
                       (
                         <div className=" flex items-center gap-1">
-                          <h1>{myChat?.latestMessage?.sender?.name}</h1>
+                          <h1>{myChat.latestMessage.sender.name}</h1>
                           <div>:</div>
                         </div>
                       ) : (<div>You :</div>))
@@ -112,13 +112,14 @@ const ChatUser = ({myChat, setNevgated}) => {
               </div>
             </div>
           
-            <div className={` flex text-xs ${myChat?.latestMessage?.sender?._id !== user?._id ? (" text-green-600") : (" text-stone-400")}`}>
-              {
-                myChat?.latestMessage?.updatedAt ? formatDate(myChat?.latestMessage?.updatedAt) : ''
-              }
-            </div>
-          
           </div>
+
+          <div className={` flex text-xs w-full justify-end ${myChat?.latestMessage?.sender?._id !== user?._id ? (" text-green-600") : (" text-stone-400")}`}>
+            {
+              myChat?.latestMessage?.updatedAt ? formatDate(myChat?.latestMessage?.updatedAt) : ''
+            }
+          </div>
+
         </div>
 
       </div>
