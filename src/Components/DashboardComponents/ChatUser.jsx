@@ -47,7 +47,7 @@ const ChatUser = ({myChat, setNevgated}) => {
        onClick={clickHandler}
       >
 
-        <div className=" w-[20%]">
+        <div className=" w-[calc(100%-80%)]">
 
           {
             loading &&
@@ -57,7 +57,7 @@ const ChatUser = ({myChat, setNevgated}) => {
           }
 
           <img src={myChat.isGroupChat === true ? (myChat?.groupIcon) : (myChat.users[0]?.profile)}
-            alt="" className={`rounded-full h-[65px] w-[65px] max-[1220px]:h-[50px] max-[1220px]:w-[50px] ${loading ? " hidden" : ""}`}
+            alt="" className={`rounded-full h-[65px] w-[65px] object-cover max-[1220px]:h-[50px] max-[1220px]:w-[50px] ${loading ? " hidden" : ""}`}
             onLoad={() => setLoading(false)}
             onClick={() => {
               setOpenModal(true);
@@ -69,7 +69,7 @@ const ChatUser = ({myChat, setNevgated}) => {
           />
         </div>
 
-        <div className=" w-[80%]">
+        <div className=" w-full">
           <h1>
             {
               myChat.isGroupChat === true ? 
