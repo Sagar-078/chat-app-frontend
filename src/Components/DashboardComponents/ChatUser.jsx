@@ -47,7 +47,7 @@ const ChatUser = ({myChat, setNevgated}) => {
        onClick={clickHandler}
       >
 
-        <div className=" w-[calc(100%-80%)]">
+        <div className=" w-[20%]">
 
           {
             loading &&
@@ -69,7 +69,7 @@ const ChatUser = ({myChat, setNevgated}) => {
           />
         </div>
 
-        <div className=" w-full">
+        <div className=" w-[80%]">
           <h1>
             {
               myChat.isGroupChat === true ? 
