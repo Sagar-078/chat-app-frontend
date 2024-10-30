@@ -28,7 +28,6 @@ function App() {
     };
     window.addEventListener('beforeunload', handleBeforeUnload);
 
-    // Cleanup the event listener on component unmount
     return () => {
 
       if(user?.id){
@@ -65,8 +64,6 @@ function App() {
             </PrivateRout>
             
           }/>
-
-          {/* here is the problem when in this page  */}
 
           <Route path='/dashboard/:id' element={
           
